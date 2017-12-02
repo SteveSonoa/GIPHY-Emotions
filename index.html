@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite Movies</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Load Font Awesome -->
+  <script src="https://use.fontawesome.com/e14e0f3537.js"></script>
+
+  <!-- Load Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Mouse+Memoirs" rel="stylesheet">
+
+  <!-- Load local files -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="assets/javascript/app.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container-float">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="buttons-view"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <div class="container-float">
+          <div class="row" id="images-view"></div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="input-area">
+        <h1>Digital Emotion Generator</h1>
+        <form id="emotion-form">
+          <label for="emotion-input">Add An Emotion</label>
+          <input type="text" id="emotion-input"><br>
+
+          <!-- Button triggers new movie to be added -->
+          <input id="add-emotion" type="submit" value="Add An Emotion">
+        </form>
+      </div>
+    </div>
+    
+
+
+    
+
+    <!-- Movies will get dumped Dere -->
+    <div id="movies-view"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // This function handles events where the add movie button is clicked
+      $("#add-emotion").on("click", function(event) {
+        event.preventDefault();
+        // This line of code will grab the input from the textbox
+        var emotion = $("#emotion-input").val().trim();
+        // The movie from the textbox is then added to our array
+        emotions.push(emotion);
+        // Calling renderButtons which handles the processing of our movie array
+        renderButtons();
+      });
+
+      // Adding click event listeners to all elements with a class of "emotion"
+      $(document).on("click", ".emotion", displayGIFs);
+      // Calling the renderButtons function to display the intial buttons
+      renderButtons();
+    </script>
+  </div>
+</body>
+
+</html>
