@@ -53,15 +53,12 @@ function displayGIFs() {
         "data-state": "still"        
       });
 
+      gifDiv.append("Rating: " + response.data[i].rating + "<br>");
       gifDiv.append(gifImg);
       $("#images-view").append(gifDiv);
-
     }
   });
-
 }
-
-
 
 // Draw the buttons at the top of the screen
 function renderButtons() {
@@ -69,17 +66,6 @@ function renderButtons() {
   $("#buttons-view").empty();
   // Go through the array of buttons
   for (var i = 0; i < emotions.length; i++) {
-    // Determine the size of the button div
-    if(emotions[i].length > 6) {
-      var buttonDiv = $("<div>", {
-        class: "col-lg-2 col-md-3 col-sm-3 col-xs-8"
-      });
-    }
-    else {
-      var buttonDiv = $("<div>", {
-        class: "col-lg-1 col-md-2 col-sm-2 col-xs-4"
-      });
-    }    
     // Create a button type
     var a = $("<button>");
     // Add a class of "emotion"
@@ -89,8 +75,8 @@ function renderButtons() {
     // Label the button
     a.text(emotions[i]);
     // Draw the button in the div
-    buttonDiv.html(a);
-    $("#buttons-view").append(buttonDiv);
+    // buttonDiv.html(a);
+    $("#buttons-view").append(a);
   }
 }
 
